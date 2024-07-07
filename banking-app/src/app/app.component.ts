@@ -6,11 +6,12 @@ import {MenuComponent} from "./components/menu/menu.component";
 import {UserDashboardComponent} from "./pages/user-dashboard/user-dashboard.component";
 import {MyTransactionsComponent} from "./pages/my-transactions/my-transactions.component";
 import {MyContactListComponent} from "./pages/my-contact-list/my-contact-list.component";
+import {NewTransactionComponent} from "./pages/new-transaction/new-transaction.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, RegisterComponent, MenuComponent, UserDashboardComponent, MyTransactionsComponent, MyContactListComponent],
+  imports: [RouterOutlet, LoginComponent, RegisterComponent, MenuComponent, UserDashboardComponent, MyTransactionsComponent, MyContactListComponent, NewTransactionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
