@@ -8,11 +8,12 @@ import {MyTransactionsComponent} from "./pages/my-transactions/my-transactions.c
 import {MyContactListComponent} from "./pages/my-contact-list/my-contact-list.component";
 import {NewTransactionComponent} from "./pages/new-transaction/new-transaction.component";
 import {NewContactComponent} from "./pages/new-contact/new-contact.component";
+import {ProfileComponent} from "./pages/profile/profile.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, RegisterComponent, MenuComponent, UserDashboardComponent, MyTransactionsComponent, MyContactListComponent, NewTransactionComponent, NewContactComponent],
+  imports: [RouterOutlet, LoginComponent, RegisterComponent, MenuComponent, UserDashboardComponent, MyTransactionsComponent, MyContactListComponent, NewTransactionComponent, NewContactComponent, ProfileComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
