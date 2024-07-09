@@ -10,14 +10,16 @@ import {NewTransactionComponent} from "./pages/new-transaction/new-transaction.c
 import {NewContactComponent} from "./pages/new-contact/new-contact.component";
 import {ProfileComponent} from "./pages/profile/profile.component";
 import {ManageUsersComponent} from "./admin/manage-users/manage-users.component";
+import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, RegisterComponent, MenuComponent, UserDashboardComponent, MyTransactionsComponent, MyContactListComponent, NewTransactionComponent, NewContactComponent, ProfileComponent, ManageUsersComponent],
+  imports: [RouterOutlet, LoginComponent, RegisterComponent, MenuComponent, UserDashboardComponent, MyTransactionsComponent, MyContactListComponent, NewTransactionComponent, NewContactComponent, ProfileComponent, ManageUsersComponent, NgForOf, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
   title = 'banking-app';
 }
