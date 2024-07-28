@@ -4,6 +4,7 @@ import {AuthenticationService} from "../../services/services/authentication.serv
 import {AuthenticationRequest} from "../../services/models/authentication-request";
 import {FormsModule} from "@angular/forms";
 import {NgForOf, NgIf} from "@angular/common";
+import {JwtHelperService} from "@auth0/angular-jwt";
 
 @Component({
   selector: 'app-login',
@@ -39,8 +40,17 @@ export class LoginComponent implements OnInit{
     this.authService.authenticate({
       body: this.authRequest
     }).subscribe({
-      next: (data) => {
+      next: async (data) => {
         localStorage.setItem('token', data.token as string);
+        const helper = new JwtHelperService();
+        if(data.token != null) {
+          const decodedToken = helper.decodeToken(data.token);
+          if (decodedToken.authorities[0].authority === "ROLE_ADMIN") {
+            await this.router.navigate(["admin/dashboard"]);
+          } else {
+            await this.router.navigate(["user/dashboard"]);
+          }
+        }
       },
       error: (err) => {
         console.log(err);
