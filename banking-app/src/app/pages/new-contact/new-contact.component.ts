@@ -48,7 +48,7 @@ export class NewContactComponent implements OnInit{
     this.contactService.save2({
       body: this.contact
     }).subscribe({
-      next: async (data) => {
+      next: async () => {
         await this.router.navigate(["user/my-contact-list"])
       },
       error: (err) => {
