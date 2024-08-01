@@ -19,6 +19,7 @@ import {update} from "@angular-devkit/build-angular/src/tools/esbuild/angular/co
 export class MyContactListComponent implements OnInit{
 
   contacts: Array<ContactDto> = [];
+  userIdToDelete: any = -1;
   constructor(
     private contactService: ContactService,
     private helperService: HelperService,
@@ -26,6 +27,11 @@ export class MyContactListComponent implements OnInit{
   ) {
   }
   ngOnInit(): void {
+    this.findAllContactByUser();
+  }
+
+
+  private findAllContactByUser() {
     this.contactService.findAllByUserId1({
       "user-id": this.helperService.userId
     }).subscribe({
@@ -35,8 +41,19 @@ export class MyContactListComponent implements OnInit{
     });
   }
 
-
   async update(id: number | undefined) {
     await this.router.navigate(["user/new-contact", id])
+  }
+
+  delete() {
+    if(this.userIdToDelete){
+      this.contactService.delete2({
+        "contact-id": this.userIdToDelete
+      }).subscribe({
+        next: () => {
+          this.findAllContactByUser()
+        }
+      })
+    }
   }
 }
